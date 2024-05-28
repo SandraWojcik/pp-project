@@ -68,4 +68,22 @@ public class Board {
         }
         return true;
     }
+
+    // Pobranie dostępnych ruchów
+    public int[][] getAvailableMoves() {
+        int[][] availableMoves = new int[SIZE * SIZE][2];
+        int count = 0;
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                if (board[i][j] == '-') {
+                    availableMoves[count][0] = i;
+                    availableMoves[count][1] = j;
+                    count++;
+                }
+            }
+        }
+        int[][] result = new int[count][2];
+        System.arraycopy(availableMoves, 0, result, 0, count);
+        return result;
+    }
 }
