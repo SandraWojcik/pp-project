@@ -28,7 +28,21 @@ public class Game {
             player2 = new Player('O');
         } else {
             isSinglePlayer = true;
-            player2 = new ComputerPlayer('O');
+            setupComputerPlayer();
+        }
+    }
+
+    // Konfiguracja przeciwnika komputerowego
+    private void setupComputerPlayer() {
+        System.out.println("Wybierz poziom trudności:");
+        System.out.println("1. Łatwy");
+        System.out.println("2. Trudny");
+        int difficulty = scanner.nextInt();
+
+        if (difficulty == 1) {
+            player2 = new EasyComputerPlayer('O');
+        } else {
+            player2 = new HardComputerPlayer('O');
         }
     }
 

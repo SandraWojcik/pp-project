@@ -86,4 +86,14 @@ public class Board {
         System.arraycopy(availableMoves, 0, result, 0, count);
         return result;
     }
+
+    // Sprawdzenie, czy ruch jest wygrywający
+    public boolean isWinningMove(int row, int col, char symbol) {
+        // Umieść symbol na planszy
+        board[row][col] = symbol;
+        boolean isWin = checkWin();
+        // Cofnij ruch
+        board[row][col] = '-';
+        return isWin;
+    }
 }
